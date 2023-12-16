@@ -1,5 +1,7 @@
-require("dotenv").config();
+import dotenv from "dotenv";
 import mongoose from "mongoose";
+
+dotenv.config();
 
 export const main = async () => {
   try {

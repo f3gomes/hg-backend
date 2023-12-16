@@ -27,8 +27,9 @@ var import_cors = __toESM(require("cors"));
 var import_express2 = __toESM(require("express"));
 
 // src/config/database.ts
+var import_dotenv = __toESM(require("dotenv"));
 var import_mongoose = __toESM(require("mongoose"));
-require("dotenv").config();
+import_dotenv.default.config();
 var main = async () => {
   try {
     import_mongoose.default.set("strictQuery", true);

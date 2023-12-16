@@ -33,8 +33,9 @@ __export(database_exports, {
   main: () => main
 });
 module.exports = __toCommonJS(database_exports);
+var import_dotenv = __toESM(require("dotenv"));
 var import_mongoose = __toESM(require("mongoose"));
-require("dotenv").config();
+import_dotenv.default.config();
 var main = async () => {
   try {
     import_mongoose.default.set("strictQuery", true);
