@@ -2,7 +2,7 @@
   "name": "hg-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.ts",
+  "main": "index.js",
   "scripts": {
     "build": "tsup src",
     "start": "node dist/app.js",
