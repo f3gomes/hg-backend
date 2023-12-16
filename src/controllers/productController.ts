@@ -1,46 +1,40 @@
-const Product = require("../models/Product");
+import { Request, Response } from "express";
+import { Product } from "../models/Product";
 
-const createProduct = async (req, res) => {
+export const createProduct = async (req: Request, res: Response) => {
   try {
     const product = await Product.create(req.body);
     res.status(201).json(product);
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ error: error.message });
   }
 };
 
-const getProducts = async (req, res) => {
+export const getProducts = async (req: Request, res: Response) => {
   try {
     const products = await Product.find();
     res.status(200).json(products);
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ error: error.message });
   }
 };
 
-const updateProduct = async (req, res) => {
+export const updateProduct = async (req: Request, res: Response) => {
   try {
     const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     });
     res.status(200).json(product);
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ error: error.message });
   }
 };
 
-const deleteProduct = async (req, res) => {
+export const deleteProduct = async (req: Request, res: Response) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
     res.status(204).end();
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({ error: error.message });
   }
-};
-
-module.exports = {
-  createProduct,
-  getProducts,
-  updateProduct,
-  deleteProduct,
 };

@@ -1,7 +1,7 @@
-const cors = require("cors");
-const express = require("express");
-const connectDB = require("./config/database");
-const productRoutes = require("./routes/productRoutes");
+import cors from "cors";
+import express, { Request, Response } from "express";
+import { main as connectDB } from "./config/database";
+import { productRoutes } from "./routes/productRoutes";
 
 const app = express();
 const PORT = process.env.PORT || 9000;
@@ -11,7 +11,7 @@ app.use(express.json());
 
 connectDB();
 
-app.use("/hello", (req, res) => {
+app.use("/hello", (_req: Request, res: Response) => {
   res.json({ message: "Hello API!" });
 });
 
